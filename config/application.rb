@@ -27,5 +27,6 @@ module Midnight
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.session_store :cookie_store, key: '_midnight_session', expire_after: 10.years
   end
 end

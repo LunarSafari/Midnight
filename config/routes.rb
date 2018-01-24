@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     collection do
       post :create_for_goal
+      post :create_for_leisure
     end
   end
 end

@@ -15,4 +15,11 @@ Current activity:
       <%= button_to 'Create activity for this goal', create_for_goal_activities_path(id: g.id), method: :post %>
     </li>
   <% end %>
+  <li>
+    <%= link_to 'New goal', new_goal_path %>
+  </li>
 </ul>
+
+<h1>Leisure</h1>
+Your have <%= number_with_precision @current_user.balance / 3600 %> leisure hours.
+<%= button_to 'Create activity for leisure', create_for_leisure_activities_path, method: :post %>

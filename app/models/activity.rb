@@ -1,6 +1,7 @@
 class Activity < ApplicationRecord
-  belongs_to :goal
+  belongs_to :goal, optional: true
   belongs_to :user
+  has_one :balance_log
 
   def description
     case
@@ -16,7 +17,20 @@ class Activity < ApplicationRecord
   end
 
   def end
-    update(ended_at: Time.now)
+    with_lock do
+      return if ended_at.present?
+      update(ended_at: Time.now)
+      update_balance
+    end
+  end
+
+  def update_balance
+    case
+    when leisure?
+      user.reduce_balance_for_leisure self, duration
+    when work?
+      user.add_balance_for_work self, duration
+    end
   end
 
   def leisure?
