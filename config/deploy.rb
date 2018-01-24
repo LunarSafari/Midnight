@@ -12,7 +12,7 @@ require 'mina/puma'
 set :application_name, 'time'
 set :domain, 'time.abysswalking.net'
 set :deploy_to, '/var/www/time'
-set :repository, 'https://github.com/LunarSafari/Midnight.git'
+set :repository, 'https://github.com/LunarSafari/Time.git'
 set :branch, 'master'
 
 # Optional settings:
