@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125021931) do
+ActiveRecord::Schema.define(version: 20180129021630) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "goal_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180125021931) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "ratio"
+    t.float "duration"
   end
 
   create_table "balance_logs", force: :cascade do |t|

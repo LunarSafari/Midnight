@@ -3,6 +3,9 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_one :balance_log
 
+  scope :work, -> { where.not(goal_id: nil) }
+  scope :leisure, -> { where(goal_id: nil) }
+
   def description
     case
     when leisure?
