@@ -6,6 +6,10 @@ class Activity < ApplicationRecord
   scope :work, -> { where.not(goal_id: nil) }
   scope :leisure, -> { where(goal_id: nil) }
 
+  before_save do
+    self.duration = self.ended_at - self.began_at if self.ended_at
+  end
+
   def description
     case
     when leisure?
@@ -23,16 +27,7 @@ class Activity < ApplicationRecord
     with_lock do
       return if ended_at.present?
       update(ended_at: Time.now)
-      update_balance
-    end
-  end
-
-  def update_balance
-    case
-    when leisure?
-      user.reduce_balance_for_leisure self, duration
-    when work?
-      user.add_balance_for_work self, duration
+      user.recalculate_balance
     end
   end
 
@@ -45,6 +40,6 @@ class Activity < ApplicationRecord
   end
 
   def duration
-    (ended_at - began_at).seconds
+    super.seconds
   end
 end

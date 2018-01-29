@@ -27,4 +27,8 @@ class User < ApplicationRecord
     end
   end
 
+  def recalculate_balance
+    update(balance: activities.sum('duration * ratio'))
+  end
+
 end
