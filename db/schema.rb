@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129023907) do
+ActiveRecord::Schema.define(version: 20180130064347) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "goal_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180129023907) do
     t.datetime "updated_at", null: false
     t.float "balance", default: 0.0
     t.float "ratio", default: 1.0
+    t.integer "language", default: 0
   end
 
 end

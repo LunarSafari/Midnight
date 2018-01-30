@@ -1,0 +1,10 @@
+zh_cn:
+  activity: 活动
+  current_activity: 当前活动
+  end_this_activity: 结束此活动
+  create_activity_for_this_goal: 为此目标创建一个活动
+  new_goal: 新目标
+  create_activity_for_leisure: 为娱乐创建一个活动
+  goals: 目标
+  leisure: 娱乐
+  leisure_hours: 你有 %{hours} 小时休闲时间。

@@ -30,4 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activity: Activity
+  current_activity: Current activity
+  end_this_activity: End this activity
+  create_activity_for_this_goal: Create activity for this goal
+  new_goal: New goal
+  create_activity_for_leisure: Create activity for leisure
+  goals: Goals
+  leisure: Leisure
+  leisure_hours: Your have %{hours} leisure hours.

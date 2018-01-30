@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_locale
 
   def alert message
     render js: "alert(#{message.inspect})"
@@ -13,5 +14,13 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def set_locale
+    if current_user
+      I18n.locale = current_user.language_sym
+    else
+      I18n.locale = I18n.default_locale
+    end
   end
 end

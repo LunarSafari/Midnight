@@ -1,25 +1,25 @@
-<h1>Activity</h1>
-Current activity:
+<h1><%= t 'activity' %></h1>
+<%= t 'current_activity' %>:
 <% if @current_activity %>
   <%= @current_activity.description %>
-  <%= button_to 'End this activity', end_activity_path(@current_activity), method: :patch %>
+  <%= button_to t('end_this_activity'), end_activity_path(@current_activity), method: :patch %>
 <% else %>
   No activity.
 <% end %>
 
-<h1>Goals</h1>
+<h1><%= t('goals') %></h1>
 <ul>
   <% @goals.each do |g| %>
     <li>
       <%= g.name %>
-      <%= button_to 'Create activity for this goal', create_for_goal_activities_path(id: g.id), method: :post if !@current_activity %>
+      <%= button_to t('create_activity_for_this_goal'), create_for_goal_activities_path(id: g.id), method: :post if !@current_activity %>
     </li>
   <% end %>
   <li>
-    <%= link_to 'New goal', new_goal_path %>
+    <%= link_to t('new_goal'), new_goal_path %>
   </li>
 </ul>
 
-<h1>Leisure</h1>
-Your have <%= number_with_precision @current_user.balance / 3600 %> leisure hours.
-<%= button_to 'Create activity for leisure', create_for_leisure_activities_path, method: :post if !@current_activity %>
+<h1><%= t('leisure') %></h1>
+<%= t('leisure_hours', hours: number_with_precision(@current_user.balance / 3600)) %>
+<%= button_to t('create_activity_for_leisure'), create_for_leisure_activities_path, method: :post if !@current_activity %>
