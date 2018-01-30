@@ -1,0 +1,20 @@
+
+<h1>
+  <%= @goal.name %>
+  <%= '(archived)' if @goal.archived? %>
+</h1>
+<%= button_to t('edit'), edit_goal_path(@goal), method: :get %>
+<% if @goal.archived? %>
+  <%= button_to t('activate'), activate_goal_path(@goal), method: :patch %>
+<% else %>
+  <%= button_to t('archive'), archive_goal_path(@goal), method: :patch %>
+<% end %>
+Your have invested <%= number_with_precision @total_hours %> hours.
+<h1>Activities</h1>
+<ul>
+  <% @goal.activities.each do |a| %>
+    <li>
+      Began at <%= a.began_at %>. Ended at <%= a.ended_at %>. <%= button_to 'Adjust end time', adjust_activity_path(a) %>
+    </li>
+  <% end %>
+</ul>

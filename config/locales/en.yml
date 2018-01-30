@@ -39,3 +39,6 @@ en:
   goals: Goals
   leisure: Leisure
   leisure_hours: Your have %{hours} leisure hours.
+  edit: Edit
+  archive: Archive
+  activate: Activate

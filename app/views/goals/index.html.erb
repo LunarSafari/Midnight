@@ -1,0 +1,10 @@
+<h1>Goals</h1>
+
+<ul>
+  <% @goals.each do |g| %>
+    <li>
+      <%= g.name %>
+      <%= '(archived)' if g.archived? %>
+    </li>
+  <% end %>
+</ul>

@@ -3,11 +3,19 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :update]
   resource :session, only: [:new, :create, :destroy]
   resource :account, only: [:show]
-  resources :goals
+
+  resources :goals do
+    member do
+      patch :archive
+      patch :activate
+    end
+  end
+
   resources :activities, only: [:new, :create] do
     member do
       patch :begin
       patch :end
+      get :adjust
     end
 
     collection do
