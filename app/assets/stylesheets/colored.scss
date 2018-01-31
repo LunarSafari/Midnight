@@ -1,0 +1,68 @@
+// Place all the styles related to the activities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color1: #052d3e;
+$color2: rgb(93, 198, 220);
+$color3: rgb(91, 184, 174);
+$color4: rgb(129, 199, 129);
+$color5: #a63305;
+
+body.colored, html {
+  height: 100%;
+}
+
+body.colored {
+  background-color: #000;
+  color: $color1;
+  margin: 0;
+}
+
+.colored {
+  main {
+    background-color: $color1;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+  }
+
+  section {
+    padding: 18px 12px;
+    border-bottom: none;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  header {
+    display: none;
+  }
+
+  .current-activity {
+    background-color: $color2;
+  }
+
+  .goals {
+    background-color: $color3;
+  }
+
+  .leisure {
+    background-color: $color4;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer {
+    color: #fff;
+    text-align: center;
+  }
+}

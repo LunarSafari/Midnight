@@ -9,6 +9,11 @@ class User < ApplicationRecord
     zh_cn: 1
   }.invert
 
+  THEMES = {
+    classic: 0,
+    colored: 1
+  }.invert
+
   def current_activity
     activities.where.not(began_at: nil).where(ended_at: nil).first
   end
@@ -38,6 +43,10 @@ class User < ApplicationRecord
 
   def language_sym
     LANGUAGES[language]
+  end
+
+  def theme_sym
+    THEMES[theme]
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130072819) do
+ActiveRecord::Schema.define(version: 20180131025324) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "goal_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180130072819) do
     t.float "balance", default: 0.0
     t.float "ratio", default: 1.0
     t.integer "language", default: 0
+    t.integer "theme", default: 0
   end
 
 end

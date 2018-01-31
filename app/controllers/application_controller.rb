@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
       I18n.locale = I18n.default_locale
     end
   end
+
+  def current_theme
+    current_user&.theme_sym || :classic
+  end
+  helper_method :current_theme
 end
